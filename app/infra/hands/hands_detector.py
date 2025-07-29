@@ -28,6 +28,11 @@ class HandDetector(HandDetectorInterface):
                 ]
                 side = hand_side.classification[0].label
                 draw_hand_landmarks(img, hand_landmarks)
-                hand_data.append({"side": side, "coords": coords})
+                hand_center = coords[0]
+                hand_data.append({
+                    "side": side,
+                    "coords": coords,
+                    "center": hand_center
+                })
 
         return img, hand_data
